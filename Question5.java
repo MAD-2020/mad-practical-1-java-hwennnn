@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 
-public class HelloWorld
+public class Question5
 {
 	public static int mode(final int[] numbers) {
 		int modes = 0;
