@@ -4,26 +4,21 @@ import java.util.Scanner;
 public class Question5
 {
 	
-	public static int mode(int[] array, int n){
-	    int[] countArray = new int[n];
+	public static int mode(int a[]) {
+	    int maxValue, maxCount;
 
-	    
-	    for(int i = 0; i < array.length; i++){
-	      countArray[array[i]]++;
+	    for (int i = 0; i < a.length; ++i) {
+	        int count = 0;
+	        for (int j = 0; j < a.length; ++j) {
+	            if (a[j] == a[i]) ++count;
+	        }
+	        if (count > maxCount) {
+	            maxCount = count;
+	            maxValue = a[i];
+	        }
 	    }
-	    
 
-	    int mode = countArray[0], modeIndex = 0;
-
-	    
-	    for(int i = 1; i < countArray.length; i++){
-	      if(countArray[i] > mode){
-
-	        mode = countArray[i];
-	        modeIndex = i;
-	      }
-	    }
-	    return modeIndex;
+	    return maxValue;
 	}
 	
   public static void main(String[] args)
@@ -58,7 +53,7 @@ public class Question5
     for (int i = 0; i < n; i++) {
     	lst[i] = in.nextInt();
     }
-    System.out.println(mode(lst, n));
+    System.out.println(mode(lst));
     
     
   }
