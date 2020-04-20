@@ -12,9 +12,9 @@ public class Question5
 		
 	    Map<Integer, Integer> countMap = new HashMap<Integer, Integer>();
 
-	    int max = -1;
+	    int max = -1; //not significant
 
-	    for (final int n : numbers) {
+	    for (int n : numbers) {
 	        int count = 0;
 
 	        if (countMap.containsKey(n)) {
@@ -30,7 +30,7 @@ public class Question5
 	        }
 	    }
 
-	    for (final Map.Entry<Integer, Integer> tuple : countMap.entrySet()) {
+	    for (Map.Entry<Integer, Integer> tuple : countMap.entrySet()) {
 	        if (tuple.getValue() == max) {
 	            modes = tuple.getKey();
 	        }
