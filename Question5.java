@@ -1,25 +1,44 @@
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 
-public class Question5
+public class HelloWorld
 {
-	
-	public static int mode(int a[]) {
-	    int maxValue, maxCount;
+	public static int mode(final int[] numbers) {
+		int modes = 0;
+		
+	    Map<Integer, Integer> countMap = new HashMap<Integer, Integer>();
 
-	    for (int i = 0; i < a.length; ++i) {
+	    int max = -1;
+
+	    for (final int n : numbers) {
 	        int count = 0;
-	        for (int j = 0; j < a.length; ++j) {
-	            if (a[j] == a[i]) ++count;
+
+	        if (countMap.containsKey(n)) {
+	            count = countMap.get(n) + 1;
+	        } else {
+	            count = 1;
 	        }
-	        if (count > maxCount) {
-	            maxCount = count;
-	            maxValue = a[i];
+
+	        countMap.put(n, count);
+
+	        if (count > max) {
+	            max = count;
 	        }
 	    }
 
-	    return maxValue;
+	    for (final Map.Entry<Integer, Integer> tuple : countMap.entrySet()) {
+	        if (tuple.getValue() == max) {
+	            modes = tuple.getKey();
+	        }
+	    }
+
+	    return modes;
 	}
+
 	
   public static void main(String[] args)
   {
